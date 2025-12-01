@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Gestión de Sensores</title>
+</head>
+<body class="fondo-sensores">
+
+<div class="big-container">
+    <div class="big-box">
+
+        <h2 class="tutorial-title">Gestión de Sensores</h2>
+
+        <p class="content-text">
+            En los dispositivos móviles modernos, los sensores permiten obtener información del entorno 
+            y mejorar la interacción con el usuario. Desde el acelerómetro hasta el GPS, cada sensor 
+            juega un papel importante en aplicaciones que requieren contexto físico del dispositivo.
+        </p>
+
+        <!-- =============================
+             TIPOS DE SENSORES
+        ==============================-->
+
+        <h3 class="section-title">1. Identificar los tipos de sensores en dispositivos móviles</h3>
+
+        <p class="content-text">
+            Los sistemas operativos móviles como Android y iOS integran una amplia variedad de sensores. 
+            Algunos de los más comunes son:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Acelerómetro:</b> mide la aceleración y detecta orientación.</li>
+            <li><b>Giroscopio:</b> detecta rotación y cambios angulares.</li>
+            <li><b>Sensor de proximidad:</b> detecta objetos cercanos (ej: pantalla apagada durante llamadas).</li>
+            <li><b>GPS:</b> obtiene ubicación geográfica exacta.</li>
+            <li><b>Magnetómetro:</b> funciona como una brújula digital.</li>
+            <li><b>Sensor de luz:</b> ajusta el brillo de pantalla automáticamente.</li>
+            <li><b>Barómetro:</b> mide presión atmosférica.</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo visual:</p>
+            <img src="https://i.imgur.com/npgQgC7.png" alt="Tipos de sensores en móviles" style="width:100%; border-radius:10px;">
+        </div>
+
+        <!-- =============================
+             GESTIÓN DE SENSORES
+        ==============================-->
+
+        <h3 class="section-title">2. Proceso de gestión de sensores</h3>
+
+        <p class="content-text">
+            Para utilizar sensores en una app móvil, se siguen tres etapas principales:
+        </p>
+
+        <h4 class="section-title">● Habilitación del sensor</h4>
+        <p class="content-text">
+            El sistema debe solicitar permiso (en algunos sensores) y activar el listener que recibirá los datos.
+        </p>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo en Android (Kotlin):</p>
+            <pre>
+val sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+val acelerometro = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+sensorManager.registerListener(this, acelerometro, SensorManager.SENSOR_DELAY_NORMAL)
+            </pre>
+        </div>
+
+        <h4 class="section-title">● Obtención de datos</h4>
+        <p class="content-text">
+            Una vez habilitado el sensor, la app recibe datos en tiempo real mediante eventos.
+        </p>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo de lectura:</p>
+            <pre>
+override fun onSensorChanged(event: SensorEvent?) {
+    val x = event!!.values[0]
+    val y = event!!.values[1]
+    val z = event!!.values[2]
+}
+            </pre>
+        </div>
+
+        <h4 class="section-title">● Procesamiento de información</h4>
+        <p class="content-text">
+            Los datos crudos se procesan para transformarlos en algo útil, como pasos del usuario (podómetro), 
+            dirección del móvil, nivel de luz, etc.
+        </p>
+
+        <img src="https://i.imgur.com/eWn6C5b.png" style="width:100%; margin-top:15px; border-radius:10px;">
+
+        <!-- =============================
+             EJEMPLO DE USO
+        ==============================-->
+
+        <h3 class="section-title">3. Ejemplo práctico: Detector de movimiento</h3>
+
+        <p class="content-text">
+            Una aplicación simple puede usar el acelerómetro para detectar movimientos bruscos del telefono.
+        </p>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo (pseudocódigo):</p>
+            <pre>
+si (variación de aceleración > umbral) {
+    mostrar("Movimiento detectado")
+}
+            </pre>
+        </div>
+
+        <!-- =============================
+             ENLACES ÚTILES
+        ==============================-->
+
+        <h3 class="section-title">4. Enlaces útiles</h3>
+        <ul class="content-text">
+            <li><a href="https://developer.android.com/guide/topics/sensors" target="_blank">Guía oficial de Android: Sensores</a></li>
+            <li><a href="https://developer.apple.com/documentation/coremotion" target="_blank">CoreMotion en iOS (sensores)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=TNVXBzVtsuI" target="_blank">Video explicativo sobre sensores móviles</a></li>
+        </ul>
+
+        <!-- =============================
+             REFERENCIAS
+        ==============================-->
+
+        <div class="ref-box">
+            <h3 class="section-title">Referencias</h3>
+            <ul>
+                <li>Android Developers — Sensor Framework.</li>
+                <li>Apple Developer — Core Motion Documentation.</li>
+                <li>IEEE Mobile Computing: Sensor Technology Overview.</li>
+                <li>Guía de desarrollo móvil, Universidad de Monterrey.</li>
+            </ul>
+        </div>
+
+        <p class="link" style="margin-top:25px; text-align:center;">
+            <a href="tutorial.html">← Regresar al menú</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

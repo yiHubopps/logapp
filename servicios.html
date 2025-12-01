@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Servicios y Notificaciones en Apps</title>
+</head>
+<body class="fondo-notificaciones">
+
+<div class="big-container">
+    <div class="big-box">
+
+        <h2 class="tutorial-title">Servicios y Notificaciones en Aplicaciones Móviles</h2>
+
+        <p class="content-text">
+            Las aplicaciones móviles modernas requieren ejecutar tareas en segundo plano, mantener procesos 
+            activos sin que el usuario interactúe directamente y notificar eventos importantes. En Android e iOS, 
+            esto se logra mediante servicios, tareas en background y sistemas avanzados de notificaciones.
+        </p>
+
+        <!-- =============================
+             TAREAS EN SEGUNDO PLANO
+        ==============================-->
+
+        <h3 class="section-title">1. Cómo se definen las tareas en segundo plano</h3>
+
+        <p class="content-text">
+            Las tareas en segundo plano permiten ejecutar procesos sin depender de que la aplicación esté abierta.
+            Algunos ejemplos comunes incluyen:
+        </p>
+
+        <ul class="content-text">
+            <li>Sincronizar datos con un servidor.</li>
+            <li>Monitorear ubicación del usuario.</li>
+            <li>Reproducir música mientras la app está cerrada.</li>
+            <li>Enviar o recibir notificaciones push.</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo en Android (Foreground Service en Kotlin):</p>
+            <pre>
+class MiServicio : Service() {
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        mostrarNotificacionPersistente()
+        return START_STICKY
+    }
+}
+            </pre>
+        </div>
+
+        <img src="https://i.imgur.com/fpb6tkF.png" alt="Servicios Android" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <!-- =============================
+             NOTIFICACIONES
+        ==============================-->
+
+        <h3 class="section-title">2. Tratamiento de notificaciones en aplicaciones móviles</h3>
+
+        <p class="content-text">
+            Las notificaciones permiten informar al usuario sobre eventos importantes. Existen notificaciones:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Locales:</b> generadas directamente por la app.</li>
+            <li><b>Push:</b> enviadas desde un servidor externo.</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo de notificación local (Android):</p>
+            <pre>
+val builder = NotificationCompat.Builder(context, "canal")
+    .setContentTitle("Nuevo mensaje")
+    .setContentText("Tienes una actualización pendiente")
+    .setSmallIcon(R.drawable.ic_notify)
+
+with(NotificationManagerCompat.from(context)) {
+    notify(1, builder.build())
+}
+            </pre>
+        </div>
+
+        <img src="https://i.imgur.com/eaZxNdF.png" alt="Notificación móvil" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <!-- =============================
+             IMPLEMENTACIÓN DE BACKGROUND + NOTIFICACIONES
+        ==============================-->
+
+        <h3 class="section-title">3. Proveedor de contenido, tareas en background y notificaciones</h3>
+
+        <p class="content-text">
+            Un flujo común en apps que manejan información externa es:
+        </p>
+
+        <ol class="content-text">
+            <li>El proveedor de contenido obtiene o almacena datos.</li>
+            <li>Una tarea en segundo plano sincroniza los datos.</li>
+            <li>El sistema envía una notificación al usuario si algo requiere su atención.</li>
+        </ol>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo gráfico del flujo:</p>
+            <img src="https://i.imgur.com/m74zm6s.png" alt="Flujo de contenido" style="width:100%; border-radius:10px;">
+        </div>
+
+        <!-- =============================
+             SERVICIOS DE CÓMPUTO EN LA NUBE
+        ==============================-->
+
+        <h3 class="section-title">4. Servicios de cómputo en la nube aplicables al desarrollo móvil</h3>
+
+        <p class="content-text">
+            Muchas apps dependen de la nube para almacenar datos, autenticar usuarios o enviar notificaciones.
+            Entre los más usados están:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Firebase Cloud Messaging:</b> envío de notificaciones push.</li>
+            <li><b>Google Cloud Functions:</b> ejecutar código backend sin servidores.</li>
+            <li><b>AWS Amplify:</b> autenticación, almacenamiento y APIs.</li>
+            <li><b>Azure Mobile Apps:</b> sincronización y análisis.</li>
+        </ul>
+
+        <img src="https://i.imgur.com/KVyS2Hl.png" alt="Servicios en la nube para apps" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <!-- =============================
+             ENLACES ÚTILES
+        ==============================-->
+
+        <h3 class="section-title">5. Enlaces útiles</h3>
+        <ul class="content-text">
+            <li><a href="https://developer.android.com/guide/components/services" target="_blank">Guía de servicios en Android</a></li>
+            <li><a href="https://firebase.google.com/docs/cloud-messaging" target="_blank">FCM — Notificaciones push</a></li>
+            <li><a href="https://developer.apple.com/documentation/usernotifications" target="_blank">Notificaciones en iOS</a></li>
+            <li><a href="https://youtu.be/iKqZ2QiHcXg" target="_blank">Video: Cómo funcionan los servicios en apps</a></li>
+        </ul>
+
+        <!-- =============================
+             REFERENCIAS
+        ==============================-->
+
+        <div class="ref-box">
+            <h3 class="section-title">Referencias</h3>
+            <ul>
+                <li>Android Developers — Services & Notifications.</li>
+                <li>Apple Developer — UserNotifications Framework.</li>
+                <li>Firebase Cloud Messaging — Google.</li>
+                <li>Libro: Mobile App Development Essentials.</li>
+            </ul>
+        </div>
+
+        <p class="link" style="margin-top:25px; text-align:center;">
+            <a href="tutorial.html">← Regresar al menú</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

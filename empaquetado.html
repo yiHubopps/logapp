@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Herramientas para el Empaquetado y Despliegue de Apps</title>
+</head>
+<body>
+
+<div class="big-container">
+    <div class="big-box">
+
+        <h2 class="tutorial-title">Herramientas para el Empaquetado y Despliegue de Aplicaciones Móviles</h2>
+
+        <p class="content-text">
+            El empaquetado y despliegue son etapas fundamentales para preparar una aplicación móvil antes de su 
+            distribución. Este proceso garantiza que la app esté optimizada, firme correctamente, cuente con 
+            recursos comprimidos y pueda instalarse en distintos dispositivos o publicarse en tiendas oficiales.
+        </p>
+
+        <!-- =============================
+             TIPOS DE EMPAQUETADO
+        ==============================-->
+
+        <h3 class="section-title">1. Tipos de empaquetado en aplicaciones móviles</h3>
+
+        <p class="content-text">
+            Dependiendo de la plataforma, las apps requieren diferentes formatos de empaquetado. Estos archivos contienen
+            todo lo necesario para ejecutar la aplicación.
+        </p>
+
+        <ul class="content-text">
+            <li><b>APK (Android):</b> formato tradicional de instalación.</li>
+            <li><b>AAB (Android App Bundle):</b> formato moderno optimizado para Google Play.</li>
+            <li><b>IPA (iOS):</b> paquete firmado para dispositivos Apple.</li>
+            <li><b>XAP / APPX:</b> formatos para Windows Phone y UWP (históricos).</li>
+        </ul>
+
+        <img src="https://i.imgur.com/APFuxrM.png" alt="Formatos de empaquetado" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <!-- =============================
+             HERRAMIENTAS DE EMPAQUETADO
+        ==============================-->
+
+        <h3 class="section-title">2. Herramientas para el empaquetado</h3>
+
+        <p class="content-text">
+            Las herramientas de empaquetado permiten generar estos archivos automáticamente desde el código fuente. 
+            Algunas de las más utilizadas son:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Android Studio:</b> genera APK y AAB de forma automática.</li>
+            <li><b>Xcode:</b> compila y empaqueta archivos IPA.</li>
+            <li><b>Gradle:</b> sistema de automatización para Android.</li>
+            <li><b>Fastlane:</b> automatiza firmas, builds y publicaciones.</li>
+            <li><b>Flutter CLI:</b> crea ejecutables móviles multiplataforma.</li>
+            <li><b>React Native CLI:</b> genera builds según la plataforma.</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo: generar APK en Android Studio</p>
+            <pre>
+Build → Build Bundle(s) / APK(s) → Build APK(s)
+            </pre>
+        </div>
+
+        <img src="https://i.imgur.com/0jkMhZJ.png" alt="Build APK" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <!-- =============================
+             PROCEDIMIENTO DE EMPAQUETADO
+        ==============================-->
+
+        <h3 class="section-title">3. Procedimiento de empaquetado</h3>
+
+        <p class="content-text">
+            Aunque cada plataforma tiene diferencias, el flujo de trabajo para empaquetar una app es el siguiente:
+        </p>
+
+        <ul class="content-text">
+            <li>Optimizar recursos (imágenes, audios, librerías).</li>
+            <li>Configurar el archivo de manifiesto.</li>
+            <li>Seleccionar el build mode (debug o release).</li>
+            <li>Generar llaves de firma digital.</li>
+            <li>Compilar y generar el paquete.</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo de firma en Android con keytool:</p>
+            <pre>
+keytool -genkey -v -keystore miapp.keystore -alias miapp -keyalg RSA -keysize 2048 -validity 10000
+            </pre>
+        </div>
+
+        <!-- =============================
+             HERRAMIENTAS DE DESPLIEGUE
+        ==============================-->
+
+        <h3 class="section-title">4. Herramientas de despliegue</h3>
+
+        <p class="content-text">
+            El despliegue consiste en instalar, publicar o distribuir la aplicación a los usuarios. 
+            Algunas herramientas clave incluyen:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Google Play Console:</b> para publicar APK y AAB.</li>
+            <li><b>App Store Connect:</b> para publicar apps en iOS.</li>
+            <li><b>Firebase App Distribution:</b> distribuye builds a testers.</li>
+            <li><b>Diawi:</b> instala apps sin tienda para pruebas rápidas.</li>
+            <li><b>TestFlight:</b> pruebas beta oficiales en iOS.</li>
+        </ul>
+
+        <img src="https://i.imgur.com/elJm4jW.png" alt="Despliegue de apps" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <!-- =============================
+             EJEMPLO PRÁCTICO
+        ==============================-->
+
+        <h3 class="section-title">5. Ejemplo práctico: Publicar en Google Play</h3>
+
+        <p class="content-text">
+            Para publicar una app en Google Play, se deben seguir estos pasos esenciales:
+        </p>
+
+        <div class="example-box">
+            <p class="example-title">Proceso resumido:</p>
+            <pre>
+1. Crear cuenta en Google Play Console.
+2. Subir un App Bundle (AAB).
+3. Completar ficha de Play Store (icono, screenshots, descripción).
+4. Clasificación por edades.
+5. Revisión automática y manual.
+6. Publicación.
+            </pre>
+        </div>
+
+        <img src="https://i.imgur.com/IOJ4hY0.png" alt="Google Play Console" style="width:100%; border-radius:10px;">
+
+        <!-- =============================
+             ENLACES ÚTILES
+        ==============================-->
+
+        <h3 class="section-title">6. Enlaces útiles</h3>
+        <ul class="content-text">
+            <li><a href="https://developer.android.com/studio/publish" target="_blank">Publicación en Android (oficial)</a></li>
+            <li><a href="https://developer.apple.com/app-store/" target="_blank">Publicación en App Store (oficial)</a></li>
+            <li><a href="https://firebase.google.com/docs/app-distribution" target="_blank">Firebase App Distribution</a></li>
+            <li><a href="https://fastlane.tools/" target="_blank">Fastlane — Automatización móvil</a></li>
+        </ul>
+
+        <!-- =============================
+             REFERENCIAS
+        ==============================-->
+
+        <div class="ref-box">
+            <h3 class="section-title">Referencias</h3>
+            <ul>
+                <li>Google Developers — Publishing Overview.</li>
+                <li>Apple Developer Documentation — App Distribution.</li>
+                <li>Firebase — App Distribution Guide.</li>
+                <li>Android Studio Build Tools — Gradle Documentation.</li>
+            </ul>
+        </div>
+
+        <p class="link" style="margin-top:25px; text-align:center;">
+            <a href="tutorial.html">← Regresar al menú</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

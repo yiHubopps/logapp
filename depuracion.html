@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Depuración y Seguridad</title>
+</head>
+<body>
+
+<div class="big-container">
+    <div class="big-box">
+
+        <h2 class="tutorial-title">Depuración y Seguridad en el Desarrollo de Apps</h2>
+
+        <p class="content-text">
+            La depuración y la seguridad son procesos fundamentales para garantizar que una aplicación móvil
+            funcione correctamente, sea estable, eficiente y esté protegida contra ataques o vulnerabilidades.
+            Estos mecanismos ayudan a identificar errores, mejorar el rendimiento y proteger los datos del usuario.
+        </p>
+
+        <!-- =============================
+             HERRAMIENTAS DE DEPURACIÓN
+        ==============================-->
+
+        <h3 class="section-title">1. Herramientas de depuración</h3>
+
+        <p class="content-text">
+            Las herramientas de depuración permiten encontrar fallos, errores de ejecución, consumo innecesario de recursos
+            y comportamientos inesperados. Algunas de las más utilizadas son:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Logcat (Android Studio):</b> muestra registros del sistema y mensajes personalizados.</li>
+            <li><b>Android Profiler:</b> permite monitorear el uso de CPU, memoria, red y rendimiento.</li>
+            <li><b>Xcode Debugger (iOS):</b> depuración paso a paso, breakpoints y monitoreo de variables.</li>
+            <li><b>Chrome DevTools:</b> ideal para apps híbridas como Ionic o React Native.</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo visual:</p>
+            <img src="https://i.imgur.com/IYq8oGQ.jpeg" alt="Android Logcat" style="width:100%; border-radius:10px;">
+        </div>
+
+        <!-- =============================
+             REGISTROS DEL SISTEMA
+        ==============================-->
+
+        <h3 class="section-title">2. Uso de registros del sistema</h3>
+
+        <p class="content-text">
+            Los registros (logs) proporcionan información detallada sobre el comportamiento de la aplicación mientras se ejecuta.
+            Con ellos es posible identificar errores, cuellos de botella, fallos de permisos o configuraciones incorrectas.
+        </p>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo Android (Kotlin):</p>
+            <pre>
+Log.d("MiApp", "Iniciando módulo de usuarios...")
+Log.e("MiApp", "Error al procesar datos: ${e.message}")
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo iOS (Swift):</p>
+            <pre>
+print("Datos recibidos correctamente")
+print("❌ Error: \(error.localizedDescription)")
+            </pre>
+        </div>
+
+        <!-- =============================
+             REFACTORIZACIÓN
+        ==============================-->
+
+        <h3 class="section-title">3. Proceso de refactorización</h3>
+
+        <p class="content-text">
+            Refactorizar significa mejorar el código sin alterar su funcionamiento. El objetivo es hacerlo más claro,
+            optimizado, limpio y fácil de mantener.
+        </p>
+
+        <ul class="content-text">
+            <li>Eliminar código duplicado</li>
+            <li>Reducir complejidad</li>
+            <li>Renombrar variables para mayor claridad</li>
+            <li>Mejorar rendimiento sin cambiar el comportamiento</li>
+        </ul>
+
+        <div class="example-box">
+            <p class="example-title">Ejemplo refactorizado:</p>
+            <pre>
+/* Código antes */
+if (usuario != null && usuario.nombre != null) {
+    mostrar(usuario.nombre)
+}
+
+/* Código refactorizado */
+usuario?.nombre?.let { mostrar(it) }
+            </pre>
+        </div>
+
+        <img src="https://i.imgur.com/1sGuC3n.jpeg" alt="Refactorización" style="width:100%; margin-top:15px; border-radius:10px;">
+
+        <!-- =============================
+             MECANISMOS DE SEGURIDAD
+        ==============================-->
+
+        <h3 class="section-title">4. Mecanismos de seguridad</h3>
+
+        <p class="content-text">
+            La seguridad es esencial en aplicaciones móviles para proteger datos sensibles y evitar accesos no autorizados.
+            Los mecanismos más importantes incluyen:
+        </p>
+
+        <ul class="content-text">
+            <li><b>Permisos:</b> Solicitar solo los necesarios (cámara, ubicación, contactos, etc.).</li>
+            <li><b>Cifrado:</b> Proteger datos en almacenamiento local y durante la transmisión.</li>
+            <li><b>Archivos de configuración seguros:</b> Proteger claves API y datos privados.</li>
+            <li><b>Autenticación externa:</b> Métodos como OAuth2, Google Sign-In o Apple Sign-In.</li>
+        </ul>
+
+        <img src="https://i.imgur.com/Qvwvn1t.jpeg" alt="Seguridad móvil" style="width:100%; margin-top:15px; border-radius:10px;">
+
+        <!-- =============================
+             EJEMPLOS DE SEGURIDAD
+        ==============================-->
+
+        <h3 class="section-title">5. Ejemplos de implementación</h3>
+
+        <p class="content-text">
+            Aquí algunos ejemplos básicos de implementación de seguridad:
+        </p>
+
+        <div class="example-box">
+            <p class="example-title">Cifrado simple (Kotlin):</p>
+            <pre>
+val datos = "Información secreta"
+val bytes = datos.toByteArray()
+val cifrado = Base64.encodeToString(bytes, Base64.DEFAULT)
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <p class="example-title">Solicitud de permisos (Android):</p>
+            <pre>
+ActivityCompat.requestPermissions(
+    this,
+    arrayOf(Manifest.permission.CAMERA),
+    1
+)
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <p class="example-title">Biometría en iOS (Touch ID / Face ID):</p>
+            <pre>
+let context = LAContext()
+context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+    localizedReason: "Acceder a tu aplicación") { success, error in }
+            </pre>
+        </div>
+
+        <!-- =============================
+             REFERENCIAS
+        ==============================-->
+
+        <div class="ref-box">
+            <h3 class="section-title">Referencias</h3>
+            <ul>
+                <li>Android Developers — Debugging Tools.</li>
+                <li>Apple Developer — Xcode Debugging Guide.</li>
+                <li>OWASP — Mobile Security Top 10.</li>
+                <li>Google Developers — Seguridad en Android.</li>
+            </ul>
+        </div>
+
+        <p class="link" style="margin-top:25px; text-align:center;">
+            <a href="tutorial.html">← Regresar al menú</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
